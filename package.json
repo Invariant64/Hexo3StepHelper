@@ -2,8 +2,8 @@
     "name": "hexo3stephelper",
     "publisher": "noah-lhc",
     "displayName": "Hexo3StepHelper",
-    "description": "noah-lhc",
-    "version": "0.0.1",
+    "description": "A Simple Tool For Hexo",
+    "version": "0.0.2",
     "engines": {
         "vscode": "^1.71.0"
     },
@@ -11,20 +11,32 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:updateBlog"
+        "onCommand:updateBlog",
+        "onCommand:localDebug"
     ],
     "main": "./extension.js",
     "contributes": {
         "commands": [{
-            "command": "updateBlog",
-            "title": "Update Your Blog"
-        }],
+                "command": "updateBlog",
+                "title": "Update Your Blog"
+            },
+            {
+                "command": "localDebug",
+                "title": "Debug Web Local"
+            }
+        ],
         "menus": {
             "editor/context": [{
-                "command": "updateBlog",
-                "when": "editorFocus",
-                "group": "navigation"
-            }]
+                    "command": "updateBlog",
+                    "when": "editorFocus",
+                    "group": "navigation"
+                },
+                {
+                    "command": "localDebug",
+                    "when": "editorFocus",
+                    "group": "navigation"
+                }
+            ]
         }
     },
     "scripts": {

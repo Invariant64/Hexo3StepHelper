@@ -26,7 +26,23 @@ function activate(context) {
         vscode.window.showInformationMessage('Complete Updating!');
     });
 
+    let commandOfLocalDebug = vscode.commands.registerCommand('localDebug', () => {
+        const terminal = vscode.window.createTerminal();
+
+        const workFolders = vscode.workspace.workspaceFolders;
+        if (workFolders.length > 1) {
+            vscode.window.showInformationMessage('当前窗口存在多个工作区，请关闭多余的工作区，只留下博客文件夹，然后再试一次。');
+            return;
+        }
+        //const filePath = workFolders[0].uri.fsPath;
+        terminal.sendText('hexo s');
+        terminal.show();
+        vscode.window.showInformationMessage(`Please Open https://localhost:4000`);
+    });
+
+
     // 将命令放入其上下文对象中，使其生效
+    context.subscriptions.push(commandOfLocalDebug);
     context.subscriptions.push(commandOfUpdateBlog);
 }
 
