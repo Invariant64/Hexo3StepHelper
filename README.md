@@ -22,7 +22,7 @@ Right-click the editor and click "**Update Your Blog**".
 
 ---
 
-### Debug Yout Hexo Blog Locally
+### Debug Your Hexo Blog Locally
 
 1. Right-click the editor and click "**Debug Web Local**"
 
